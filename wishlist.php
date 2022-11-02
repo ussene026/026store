@@ -8,7 +8,7 @@ if(isset($_SESSION['user_id'])){
    $user_id = $_SESSION['user_id'];
 }else{
    $user_id = '';
-   header('location:user_login.php');
+   header('location:login.php');
 };
 
 include 'components/wishlist_cart.php';
@@ -86,7 +86,7 @@ if(isset($_GET['delete_all'])){
 
    <div class="wishlist-total">
       <p>grand total : <span>$<?= $grand_total; ?>/-</span></p>
-      <a href="shop.php" class="option-btn">continue shopping</a>
+      <a href="produtos.php" class="option-btn">continue shopping</a>
       <a href="wishlist.php?delete_all" class="delete-btn <?= ($grand_total > 1)?'':'disabled'; ?>" onclick="return confirm('delete all from wishlist?');">delete all item</a>
    </div>
 

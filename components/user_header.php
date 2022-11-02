@@ -17,10 +17,9 @@
       <a href="index.php" class="logo">026Store<span></span></a>
       <nav class="navbar">
          <a href="index.php">Página Inicial</a>
-         <a href="orders.php">Pedidos</a>
-         <a href="shop.php">Produtos</a>
-         <a href="contact.php">Contactos</a>
-         <a href="search_page.php"><i class="fas fa-search"></i></a>
+         <a href="pedidos.php">Pedidos</a>
+         <a href="produtos.php">Produtos</a>
+         <a href="pesquisar.php"><i class="fas fa-search"></i></a>
       </nav>
 
       <div class="icons">
@@ -55,7 +54,7 @@
                ?>
                   <div class="flex-btn">
                      <a href="user_register.php" class="option-btn">Criar</a>
-                     <a href="user_login.php" class="option-btn">Entrar</a>
+                     <a href="login.php" class="option-btn">Entrar</a>
                   </div>
                <?php
             }

@@ -36,7 +36,7 @@
                      <div class="content">
                         <span>Promoção</span>
                         <h3>laptop HP ProBook</h3>
-                        <a href="shop.php" class="btn">ver mais...</a>
+                        <a href="produtos.php" class="btn">ver mais...</a>
                      </div>
                   </div>
 
@@ -47,7 +47,7 @@
                      <div class="content">
                         <span>Promoção</span>
                         <h3>Xiaomi Mi 10t pro</h3>
-                        <a href="shop.php" class="btn">ver mais...</a>
+                        <a href="produtos.php" class="btn">ver mais...</a>
                      </div>
                   </div>
 
@@ -58,7 +58,7 @@
                      <div class="content">
                         <span>Promoção</span>
                         <h3>Iphone 14s Pro Max</h3>
-                        <a href="shop.php" class="btn">ver mais...</a>
+                        <a href="produtos.php" class="btn">ver mais...</a>
                      </div>
                   </div>
                </div>

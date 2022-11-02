@@ -1,12 +1,17 @@
 <?php
-   include 'components/connect.php';
-   session_start();
-   if(isset($_SESSION['user_id'])){
-      $user_id = $_SESSION['user_id'];
-   }else{
-      $user_id = '';
-   };
-   include 'components/wishlist_cart.php';
+
+include 'components/connect.php';
+
+session_start();
+
+if(isset($_SESSION['user_id'])){
+   $user_id = $_SESSION['user_id'];
+}else{
+   $user_id = '';
+};
+
+include 'components/wishlist_cart.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -15,26 +20,32 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Produtos - 026 STORE</title>
+   <title>Pesquisar produtos - 026 STORE</title>
    <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-
-   <!-- custom css file link  -->
    <link rel="stylesheet" href="css/style.css">
-
 </head>
 <body>
    
 <?php include 'components/user_header.php'; ?>
 
-<section class="products">
+<section class="search-form">
+   <h3 class="heading">Pesquisar Produtos</h3>
 
-   <h1 class="heading">latest products</h1>
+   <form action="" method="post">
+      <input type="text" name="search_box" placeholder="Pesquisar pelo nome..." maxlength="100" class="box" required>
+      <button type="submit" class="fas fa-search" name="search_btn"></button>
+   </form>
+</section>
+
+<section class="products" style="padding-top: 0; min-height:100vh;">
 
    <div class="box-container">
 
    <?php
-     $select_products = $conn->prepare("SELECT * FROM `products`"); 
+     if(isset($_POST['search_box']) OR isset($_POST['search_btn'])){
+     $search_box = $_POST['search_box'];
+     $select_products = $conn->prepare("SELECT * FROM `products` WHERE name LIKE '%{$search_box}%'"); 
      $select_products->execute();
      if($select_products->rowCount() > 0){
       while($fetch_product = $select_products->fetch(PDO::FETCH_ASSOC)){
@@ -55,16 +66,16 @@
       <input type="submit" value="add to cart" class="btn" name="add_to_cart">
    </form>
    <?php
+         }
+      }else{
+         echo '<p class="empty">Nenhum produto encontrado.</p>';
       }
-   }else{
-      echo '<p class="empty">no products found!</p>';
    }
    ?>
 
    </div>
 
 </section>
-
 
 
 
