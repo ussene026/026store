@@ -137,7 +137,7 @@ section{
    color:var(--red);
    border-radius: .5rem;
    font-size: 2rem;
-   text-transform: capitalize;
+   margin: auto;
 }
 
 .disabled{

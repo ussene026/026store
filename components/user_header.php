@@ -17,10 +17,9 @@
       <a href="index.php" class="logo">026Store<span></span></a>
       <nav class="navbar">
          <a href="index.php">Página Inicial</a>
-         <a href="about.php">about</a>
-         <a href="orders.php">orders</a>
-         <a href="shop.php">shop</a>
-         <a href="contact.php">contact</a>
+         <a href="orders.php">Pedidos</a>
+         <a href="shop.php">Produtos</a>
+         <a href="contact.php">Contactos</a>
          <a href="search_page.php"><i class="fas fa-search"></i></a>
       </nav>
 
@@ -44,32 +43,23 @@
             if($select_profile->rowCount() > 0){
                $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
                ?>
-               <p><?= $fetch_profile["name"]; ?></p>
-               <a href="update_user.php" class="btn">update profile</a>
-               <div class="flex-btn">
-                  <a href="wishlist.php" class="option-btn"><i class="fas fa-heart"></i> <?= $total_wishlist_counts; ?> Favoritos</a>
-                  <a href="cart.php" class="option-btn"><i class="fas fa-shopping-cart"></i> <?= $total_cart_counts; ?> Pedidos</a>
-               </div>
-               <div class="flex-btn">
-                  <a href="user_register.php" class="option-btn">register</a>
-                  <a href="user_login.php" class="option-btn">login</a>
-               </div>
-               <a href="components/user_logout.php" class="delete-btn" onclick="return confirm('logout from the website?');">logout</a> 
+                  <p><?= $fetch_profile["name"]; ?></p>
+                  <a href="update_user.php" class="btn">update profile</a>
+                  <div class="flex-btn">
+                     <a href="wishlist.php" class="option-btn"><i class="fas fa-heart"></i> <?= $total_wishlist_counts; ?> Favoritos</a>
+                     <a href="cart.php" class="option-btn"><i class="fas fa-shopping-cart"></i> <?= $total_cart_counts; ?> Pedidos</a>
+                  </div>
+                  <a href="components/user_logout.php" class="delete-btn" onclick="return confirm('logout from the website?');">logout</a> 
                <?php
             }else{
                ?>
-               <p>please login or register first!</p>
-               <div class="flex-btn">
-                  <a href="user_register.php" class="option-btn">register</a>
-                  <a href="user_login.php" class="option-btn">login</a>
-               </div>
+                  <div class="flex-btn">
+                     <a href="user_register.php" class="option-btn">Criar</a>
+                     <a href="user_login.php" class="option-btn">Entrar</a>
+                  </div>
                <?php
             }
          ?>      
-         
-         
       </div>
-
    </section>
-
 </header>
