@@ -72,7 +72,7 @@
    <?php
          }
       }else{
-         echo '<p class="empty">Nenhum pedido encontrado!</p>';
+         echo '<p class="empty">Nenhum pedido encontrado.</p>';
       }
    ?>
 
