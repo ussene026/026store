@@ -46,7 +46,7 @@
       <input type="password" name="pass" required placeholder="Digite a senha" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
       <input type="submit" value="Entrar" class="btn" name="submit">
       <p>Ainda não possui uma conta?</p>
-      <a href="user_register.php" class="option-btn">Criar conta</a>
+      <a href="criar_conta.php" class="option-btn">Criar conta</a>
    </form>
 
 </section>

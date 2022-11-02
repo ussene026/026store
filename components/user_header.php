@@ -53,7 +53,7 @@
             }else{
                ?>
                   <div class="flex-btn">
-                     <a href="user_register.php" class="option-btn">Criar</a>
+                     <a href="criar_conta.php" class="option-btn">Criar</a>
                      <a href="login.php" class="option-btn">Entrar</a>
                   </div>
                <?php
