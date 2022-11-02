@@ -177,14 +177,20 @@ section{
 }
 
 .header .flex .navbar a{
-   margin:0 1rem;
+   margin: 0 1rem;
    font-size: 2rem;
-   color:var(--black);
+   color: var(--black);
+   text-transform: capitalize;
+   background-color: var(--light-bg);
+   padding: 5px 10px;
+   border-radius: 6px;
 }
 
 .header .flex .navbar a:hover{
-   color:var(--main-color);
-   text-decoration: underline;
+   color: var(--white);
+   background-color: var(--main-color);
+   padding: 5px 20px;
+   transition: all 0.5s;
 }
 
 
@@ -1008,6 +1014,7 @@ section{
 
    .header .flex .navbar{
       position: absolute;
+      text-align: start;
       top:99%; left:0; right:0;
       border-top: var(--border);
       border-bottom: var(--border);
