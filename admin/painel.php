@@ -1,5 +1,5 @@
 <?php
-   include '../components/connect.php';
+   include '../components/conex.php';
    session_start();
    $admin_id = $_SESSION['admin_id'];
    if(!isset($admin_id)){
@@ -29,7 +29,7 @@
       <div class="box">
          <?php
             $total_pendings = 0;
-            $select_pendings = $conn->prepare("SELECT * FROM `orders` WHERE payment_status = ?");
+            $select_pendings = $conn->prepare("SELECT * FROM `pedidos` WHERE payment_status = ?");
             $select_pendings->execute(['pending']);
             if($select_pendings->rowCount() > 0){
                while($fetch_pendings = $select_pendings->fetch(PDO::FETCH_ASSOC)){
@@ -45,7 +45,7 @@
       <div class="box">
          <?php
             $total_completes = 0;
-            $select_completes = $conn->prepare("SELECT * FROM `orders` WHERE payment_status = ?");
+            $select_completes = $conn->prepare("SELECT * FROM `pedidos` WHERE payment_status = ?");
             $select_completes->execute(['completed']);
             if($select_completes->rowCount() > 0){
                while($fetch_completes = $select_completes->fetch(PDO::FETCH_ASSOC)){
@@ -60,7 +60,7 @@
 
       <div class="box">
          <?php
-            $select_orders = $conn->prepare("SELECT * FROM `orders`");
+            $select_orders = $conn->prepare("SELECT * FROM `pedidos`");
             $select_orders->execute();
             $number_of_orders = $select_orders->rowCount()
          ?>
@@ -71,29 +71,29 @@
 
       <div class="box">
          <?php
-            $select_products = $conn->prepare("SELECT * FROM `products`");
+            $select_products = $conn->prepare("SELECT * FROM `produtos`");
             $select_products->execute();
             $number_of_products = $select_products->rowCount()
          ?>
          <h3><?= $number_of_products; ?></h3>
          <p>Produtos registados</p>
-         <a href="products.php" class="btn">ver produtos</a>
+         <a href="produtos.php" class="btn">ver produtos</a>
       </div>
 
       <div class="box">
          <?php
-            $select_users = $conn->prepare("SELECT * FROM `users`");
+            $select_users = $conn->prepare("SELECT * FROM `clientes`");
             $select_users->execute();
             $number_of_users = $select_users->rowCount()
          ?>
          <h3>0</h3>
          <p>Produtos Mais vendidos</p>
-         <a href="products.php" class="btn">ver produtos</a>
+         <a href="produtos.php" class="btn">ver produtos</a>
       </div>
 
       <div class="box">
          <?php
-            $select_users = $conn->prepare("SELECT * FROM `users`");
+            $select_users = $conn->prepare("SELECT * FROM `clientes`");
             $select_users->execute();
             $number_of_users = $select_users->rowCount()
          ?>

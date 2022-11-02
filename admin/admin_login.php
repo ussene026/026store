@@ -1,5 +1,5 @@
 <?php
-   include '../components/connect.php';
+   include '../components/conex.php';
    session_start();
    if(isset($_POST['submit'])){
       $name = $_POST['name'];
@@ -47,15 +47,12 @@
 ?>
 
 <section class="form-container">
-
    <form action="" method="post">
-      <h3>Acessar Area Restrita</h3>
-      <p>default username = <span>admin</span> & password = <span>111</span></p>
+      <h3>Acessar Area Administrativa</h3>
       <input type="text" name="name" required placeholder="Nome de usuário" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
       <input type="password" name="pass" required placeholder="Senha" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
       <input type="submit" value="Entrar" class="btn" name="submit">
    </form>
-
 </section>
    
 </body>

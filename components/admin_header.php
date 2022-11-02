@@ -19,7 +19,8 @@
 
       <nav class="navbar">
          <a href="../admin/painel.php">Painel de Controle</a>
-         <a href="../admin/products.php">Produtos</a>
+         <a href="../index.php">Página Inicial</a>
+         <a href="../admin/produtos.php">Produtos</a>
       </nav>
 
       <div class="icons">

@@ -14,20 +14,22 @@
 <header class="header">
 
    <section class="flex">
-      <a href="index.php" class="logo">026Store<span></span></a>
+      <a href="index.php" class="logo">026<span>Store</span></a>
       <nav class="navbar">
          <a href="index.php">Página Inicial</a>
          <a href="pedidos.php">Pedidos</a>
          <a href="produtos.php">Produtos</a>
+         <a href="#">Sobre</a>
+         <a href="#">Contactos</a>
          <a href="pesquisar.php"><i class="fas fa-search"></i></a>
       </nav>
 
       <div class="icons">
          <?php
-            $count_wishlist_items = $conn->prepare("SELECT * FROM `wishlist` WHERE user_id = ?");
+            $count_wishlist_items = $conn->prepare("SELECT * FROM `favoritos` WHERE user_id = ?");
             $count_wishlist_items->execute([$user_id]);
             $total_wishlist_counts = $count_wishlist_items->rowCount();
-            $count_cart_items = $conn->prepare("SELECT * FROM `cart` WHERE user_id = ?");
+            $count_cart_items = $conn->prepare("SELECT * FROM `carrinho` WHERE user_id = ?");
             $count_cart_items->execute([$user_id]);
             $total_cart_counts = $count_cart_items->rowCount();
          ?>
@@ -37,18 +39,18 @@
 
       <div class="profile">
          <?php          
-            $select_profile = $conn->prepare("SELECT * FROM `users` WHERE id = ?");
+            $select_profile = $conn->prepare("SELECT * FROM `clientes` WHERE id = ?");
             $select_profile->execute([$user_id]);
             if($select_profile->rowCount() > 0){
                $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
                ?>
                   <p><?= $fetch_profile["name"]; ?></p>
-                  <a href="update_user.php" class="btn">update profile</a>
+                  <a href="perfil_usuario.php" class="btn">Atualizar perfil</a>
                   <div class="flex-btn">
-                     <a href="wishlist.php" class="option-btn"><i class="fas fa-heart"></i> <?= $total_wishlist_counts; ?> Favoritos</a>
-                     <a href="cart.php" class="option-btn"><i class="fas fa-shopping-cart"></i> <?= $total_cart_counts; ?> Pedidos</a>
+                     <a href="favoritos.php" class="option-btn"><i class="fas fa-heart"></i> <?= $total_wishlist_counts; ?> Favoritos</a>
+                     <a href="carrinho.php" class="option-btn"><i class="fas fa-shopping-cart"></i> <?= $total_cart_counts; ?> Pedidos</a>
                   </div>
-                  <a href="components/user_logout.php" class="delete-btn" onclick="return confirm('logout from the website?');">logout</a> 
+                  <a href="components/user_logout.php" class="delete-btn" onclick="return confirm('Deseja sair?');">Sair</a> 
                <?php
             }else{
                ?>

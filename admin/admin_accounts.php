@@ -1,6 +1,6 @@
 <?php
 
-include '../components/connect.php';
+include '../components/conex.php';
 
 session_start();
 
@@ -44,7 +44,7 @@ if(isset($_GET['delete'])){
 
    <div class="box">
       <p>add new admin</p>
-      <a href="register_admin.php" class="option-btn">register admin</a>
+      <a href="criar_admin.php" class="option-btn">register admin</a>
    </div>
 
    <?php

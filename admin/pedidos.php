@@ -1,5 +1,5 @@
 <?php
-   include '../components/connect.php';
+   include '../components/conex.php';
    session_start();
    $admin_id = $_SESSION['admin_id'];
    if(!isset($admin_id)){
@@ -9,13 +9,13 @@
       $order_id = $_POST['order_id'];
       $payment_status = $_POST['payment_status'];
       $payment_status = filter_var($payment_status, FILTER_SANITIZE_STRING);
-      $update_payment = $conn->prepare("UPDATE `orders` SET payment_status = ? WHERE id = ?");
+      $update_payment = $conn->prepare("UPDATE `pedidos` SET payment_status = ? WHERE id = ?");
       $update_payment->execute([$payment_status, $order_id]);
       $message[] = 'payment status updated!';
    }
    if(isset($_GET['delete'])){
       $delete_id = $_GET['delete'];
-      $delete_order = $conn->prepare("DELETE FROM `orders` WHERE id = ?");
+      $delete_order = $conn->prepare("DELETE FROM `pedidos` WHERE id = ?");
       $delete_order->execute([$delete_id]);
       header('location:pedidos.php');
    }
@@ -43,7 +43,7 @@
 <div class="box-container">
 
    <?php
-      $select_orders = $conn->prepare("SELECT * FROM `orders`");
+      $select_orders = $conn->prepare("SELECT * FROM `pedidos`");
       $select_orders->execute();
       if($select_orders->rowCount() > 0){
          while($fetch_orders = $select_orders->fetch(PDO::FETCH_ASSOC)){

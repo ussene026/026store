@@ -1,39 +1,37 @@
 <?php
-include 'components/connect.php';
-session_start();
-if(isset($_SESSION['user_id'])){
-   $user_id = $_SESSION['user_id'];
-}else{
-   $user_id = '';
-};
-if(isset($_POST['submit'])){
-   $name = $_POST['name'];
-   $name = filter_var($name, FILTER_SANITIZE_STRING);
-   $email = $_POST['email'];
-   $email = filter_var($email, FILTER_SANITIZE_STRING);
-   $pass = sha1($_POST['pass']);
-   $pass = filter_var($pass, FILTER_SANITIZE_STRING);
-   $cpass = sha1($_POST['cpass']);
-   $cpass = filter_var($cpass, FILTER_SANITIZE_STRING);
-
-   $select_user = $conn->prepare("SELECT * FROM `users` WHERE email = ?");
-   $select_user->execute([$email,]);
-   $row = $select_user->fetch(PDO::FETCH_ASSOC);
-
-   if($select_user->rowCount() > 0){
-      $message[] = 'Registe outro email!';
+   include 'components/conex.php';
+   session_start();
+   if(isset($_SESSION['user_id'])){
+      $user_id = $_SESSION['user_id'];
    }else{
-      if($pass != $cpass){
-         $message[] = 'As senhas não correspondem!';
+      $user_id = '';
+   };
+   if(isset($_POST['submit'])){
+      $name = $_POST['name'];
+      $name = filter_var($name, FILTER_SANITIZE_STRING);
+      $email = $_POST['email'];
+      $email = filter_var($email, FILTER_SANITIZE_STRING);
+      $pass = sha1($_POST['pass']);
+      $pass = filter_var($pass, FILTER_SANITIZE_STRING);
+      $cpass = sha1($_POST['cpass']);
+      $cpass = filter_var($cpass, FILTER_SANITIZE_STRING);
+
+      $select_user = $conn->prepare("SELECT * FROM `clientes` WHERE email = ?");
+      $select_user->execute([$email,]);
+      $row = $select_user->fetch(PDO::FETCH_ASSOC);
+
+      if($select_user->rowCount() > 0){
+         $message[] = 'Registe outro email!';
       }else{
-         $insert_user = $conn->prepare("INSERT INTO `users`(name, email, password) VALUES(?,?,?)");
-         $insert_user->execute([$name, $email, $cpass]);
-         $message[] = 'Conta criada com sucesso, confirme a conta e faça login!';
+         if($pass != $cpass){
+            $message[] = 'As senhas não correspondem!';
+         }else{
+            $insert_user = $conn->prepare("INSERT INTO `clientes`(name, email, password) VALUES(?,?,?)");
+            $insert_user->execute([$name, $email, $cpass]);
+            $message[] = 'Conta criada com sucesso, faça o login!';
+         }
       }
    }
-
-}
-
 ?>
 
 <!DOCTYPE html>

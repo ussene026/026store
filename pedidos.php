@@ -1,5 +1,5 @@
 <?php
-   include 'components/connect.php';
+   include 'components/conex.php';
    session_start();
    if(isset($_SESSION['user_id'])){
       $user_id = $_SESSION['user_id'];
@@ -31,7 +31,7 @@
       if($user_id == ''){
          echo '<p class="empty">Entre com a sua conta para visualizar pedidos.</p>';
       }else{
-         $select_orders = $conn->prepare("SELECT * FROM `orders` WHERE user_id = ?");
+         $select_orders = $conn->prepare("SELECT * FROM `pedidos` WHERE user_id = ?");
          $select_orders->execute([$user_id]);
          if($select_orders->rowCount() > 0){
             while($fetch_orders = $select_orders->fetch(PDO::FETCH_ASSOC)){
@@ -50,14 +50,14 @@
    <?php
       }
       }else{
-         echo '<p class="empty">no orders placed yet!</p>';
+         echo '<p class="empty">Nenhum pedido encontrado!</p>';
       }
       }
    ?>
-
    </div>
-
 </section>
+
+
 
 
 

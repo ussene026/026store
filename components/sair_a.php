@@ -1,6 +1,6 @@
 <?php
 
-include 'connect.php';
+include 'conex.php';
 
 session_start();
 session_unset();

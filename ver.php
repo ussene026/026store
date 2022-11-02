@@ -1,6 +1,6 @@
 <?php
 
-include 'components/connect.php';
+include 'components/conex.php';
 
 session_start();
 
@@ -10,7 +10,7 @@ if(isset($_SESSION['user_id'])){
    $user_id = '';
 };
 
-include 'components/wishlist_cart.php';
+include 'components/carrinho_fav.php';
 
 ?>
 
@@ -20,12 +20,9 @@ include 'components/wishlist_cart.php';
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>quick view</title>
-   
-   <!-- font awesome cdn link  -->
+   <title>Ver Produto - 026 STORE</title>
+   <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-
-   <!-- custom css file link  -->
    <link rel="stylesheet" href="css/style.css">
 
 </head>
@@ -35,11 +32,9 @@ include 'components/wishlist_cart.php';
 
 <section class="quick-view">
 
-   <h1 class="heading">quick view</h1>
-
    <?php
      $pid = $_GET['pid'];
-     $select_products = $conn->prepare("SELECT * FROM `products` WHERE id = ?"); 
+     $select_products = $conn->prepare("SELECT * FROM `produtos` WHERE id = ?"); 
      $select_products->execute([$pid]);
      if($select_products->rowCount() > 0){
       while($fetch_product = $select_products->fetch(PDO::FETCH_ASSOC)){
@@ -52,24 +47,24 @@ include 'components/wishlist_cart.php';
       <div class="row">
          <div class="image-container">
             <div class="main-image">
-               <img src="uploaded_img/<?= $fetch_product['image_01']; ?>" alt="">
+               <img src="upload/<?= $fetch_product['image_01']; ?>" alt="">
             </div>
             <div class="sub-image">
-               <img src="uploaded_img/<?= $fetch_product['image_01']; ?>" alt="">
-               <img src="uploaded_img/<?= $fetch_product['image_02']; ?>" alt="">
-               <img src="uploaded_img/<?= $fetch_product['image_03']; ?>" alt="">
+               <img src="upload/<?= $fetch_product['image_01']; ?>" alt="">
+               <img src="upload/<?= $fetch_product['image_02']; ?>" alt="">
+               <img src="upload/<?= $fetch_product['image_03']; ?>" alt="">
             </div>
          </div>
          <div class="content">
             <div class="name"><?= $fetch_product['name']; ?></div>
             <div class="flex">
-               <div class="price"><span>$</span><?= $fetch_product['price']; ?><span>/-</span></div>
+               <div class="price"><span></span><?= $fetch_product['price']; ?><span> MZN</span></div>
                <input type="number" name="qty" class="qty" min="1" max="99" onkeypress="if(this.value.length == 2) return false;" value="1">
             </div>
             <div class="details"><?= $fetch_product['details']; ?></div>
             <div class="flex-btn">
-               <input type="submit" value="add to cart" class="btn" name="add_to_cart">
-               <input class="option-btn" type="submit" name="add_to_wishlist" value="add to wishlist">
+               <input type="submit" value="Comprar" class="btn" name="add_to_cart">
+               <input class="option-btn" type="submit" name="add_to_wishlist" value="Adicionar ao favorito">
             </div>
          </div>
       </div>

@@ -1,5 +1,5 @@
 <?php
-   include 'components/connect.php';
+   include 'components/conex.php';
    session_start();
    if(isset($_SESSION['user_id'])){
       $user_id = $_SESSION['user_id'];
@@ -11,7 +11,7 @@
       $email = filter_var($email, FILTER_SANITIZE_STRING);
       $pass = sha1($_POST['pass']);
       $pass = filter_var($pass, FILTER_SANITIZE_STRING);
-      $select_user = $conn->prepare("SELECT * FROM `users` WHERE email = ? AND password = ?");
+      $select_user = $conn->prepare("SELECT * FROM `clientes` WHERE email = ? AND password = ?");
       $select_user->execute([$email, $pass]);
       $row = $select_user->fetch(PDO::FETCH_ASSOC);
       if($select_user->rowCount() > 0){
