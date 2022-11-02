@@ -21,6 +21,7 @@
          <a href="orders.php">orders</a>
          <a href="shop.php">shop</a>
          <a href="contact.php">contact</a>
+         <a href="search_page.php"><i class="fas fa-search"></i></a>
       </nav>
 
       <div class="icons">
@@ -33,10 +34,7 @@
             $total_cart_counts = $count_cart_items->rowCount();
          ?>
          <div id="menu-btn" class="fas fa-bars"></div>
-         <a href="search_page.php"><i class="fas fa-search"></i></a>
-         <a href="wishlist.php"><i class="fas fa-heart"></i><span>(<?= $total_wishlist_counts; ?>)</span></a>
-         <a href="cart.php"><i class="fas fa-shopping-cart"></i><span>(<?= $total_cart_counts; ?>)</span></a>
-         <div id="user-btn" class="fas fa-user"></div>
+         <div id="user-btn" class="fas fa-user"> <span>Minha Conta</span></div>
       </div>
 
       <div class="profile">
@@ -44,24 +42,28 @@
             $select_profile = $conn->prepare("SELECT * FROM `users` WHERE id = ?");
             $select_profile->execute([$user_id]);
             if($select_profile->rowCount() > 0){
-            $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
-         ?>
-         <p><?= $fetch_profile["name"]; ?></p>
-         <a href="update_user.php" class="btn">update profile</a>
-         <div class="flex-btn">
-            <a href="user_register.php" class="option-btn">register</a>
-            <a href="user_login.php" class="option-btn">login</a>
-         </div>
-         <a href="components/user_logout.php" class="delete-btn" onclick="return confirm('logout from the website?');">logout</a> 
-         <?php
+               $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
+               ?>
+               <p><?= $fetch_profile["name"]; ?></p>
+               <a href="update_user.php" class="btn">update profile</a>
+               <div class="flex-btn">
+                  <a href="wishlist.php" class="option-btn"><i class="fas fa-heart"></i> <?= $total_wishlist_counts; ?> Favoritos</a>
+                  <a href="cart.php" class="option-btn"><i class="fas fa-shopping-cart"></i> <?= $total_cart_counts; ?> Pedidos</a>
+               </div>
+               <div class="flex-btn">
+                  <a href="user_register.php" class="option-btn">register</a>
+                  <a href="user_login.php" class="option-btn">login</a>
+               </div>
+               <a href="components/user_logout.php" class="delete-btn" onclick="return confirm('logout from the website?');">logout</a> 
+               <?php
             }else{
-         ?>
-         <p>please login or register first!</p>
-         <div class="flex-btn">
-            <a href="user_register.php" class="option-btn">register</a>
-            <a href="user_login.php" class="option-btn">login</a>
-         </div>
-         <?php
+               ?>
+               <p>please login or register first!</p>
+               <div class="flex-btn">
+                  <a href="user_register.php" class="option-btn">register</a>
+                  <a href="user_login.php" class="option-btn">login</a>
+               </div>
+               <?php
             }
          ?>      
          
