@@ -217,14 +217,20 @@ section{
 }
 
 .header .flex .navbar a{
-   margin:0 1rem;
+   margin: 0 1rem;
    font-size: 2rem;
-   color:var(--black);
+   color: var(--black);
+   text-transform: capitalize;
+   background-color: var(--light-bg);
+   padding: 5px 10px;
+   border-radius: 6px;
 }
 
 .header .flex .navbar a:hover{
-   color:var(--main-color);
-   text-decoration: underline;
+   color: var(--white);
+   background-color: var(--main-color);
+   padding: 5px 20px;
+   transition: all 0.5s;
 }
 
 .header .flex .icons div{
@@ -269,7 +275,7 @@ section{
 
 .dashboard .box-container{
    display: grid;
-   grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
+   grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
    gap:1.5rem;
    justify-content: center;
    align-items: flex-start;
