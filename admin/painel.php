@@ -1,15 +1,10 @@
 <?php
-
-include '../components/connect.php';
-
-session_start();
-
-$admin_id = $_SESSION['admin_id'];
-
-if(!isset($admin_id)){
-   header('location:admin_login.php');
-}
-
+   include '../components/connect.php';
+   session_start();
+   $admin_id = $_SESSION['admin_id'];
+   if(!isset($admin_id)){
+      header('location:admin_login.php');
+   }
 ?>
 
 <!DOCTYPE html>
@@ -18,25 +13,20 @@ if(!isset($admin_id)){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>dashboard</title>
-
+   <title>Painel de Controle - 026 STORE</title>
+   <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-
    <link rel="stylesheet" href="../css/admin_style.css">
-
 </head>
 <body>
 
 <?php include '../components/admin_header.php'; ?>
 
 <section class="dashboard">
-
-   <h1 class="heading">dashboard</h1>
-
+   <h1 class="heading">Painel de Controle</h1>
    <div class="box-container">
-
       <div class="box">
-         <h3>welcome!</h3>
+         <h3>Olá <?= $fetch_profile['name']; ?>!</h3>
          <p><?= $fetch_profile['name']; ?></p>
          <a href="update_profile.php" class="btn">update profile</a>
       </div>
@@ -52,9 +42,9 @@ if(!isset($admin_id)){
                }
             }
          ?>
-         <h3><span>$</span><?= $total_pendings; ?><span>/-</span></h3>
-         <p>total pendings</p>
-         <a href="placed_orders.php" class="btn">see orders</a>
+         <h3><span></span><?= $total_pendings; ?><span></span></h3>
+         <p>Pedidos Pendentes</p>
+         <a href="placed_orders.php" class="btn">ver pendentes</a>
       </div>
 
       <div class="box">
@@ -68,9 +58,9 @@ if(!isset($admin_id)){
                }
             }
          ?>
-         <h3><span>$</span><?= $total_completes; ?><span>/-</span></h3>
-         <p>completed orders</p>
-         <a href="placed_orders.php" class="btn">see orders</a>
+         <h3><span></span><?= $total_completes; ?><span></span></h3>
+         <p>Pedidos Completos</p>
+         <a href="placed_orders.php" class="btn">ver pedidos</a>
       </div>
 
       <div class="box">
@@ -80,8 +70,8 @@ if(!isset($admin_id)){
             $number_of_orders = $select_orders->rowCount()
          ?>
          <h3><?= $number_of_orders; ?></h3>
-         <p>orders placed</p>
-         <a href="placed_orders.php" class="btn">see orders</a>
+         <p>Total de pedidos</p>
+         <a href="placed_orders.php" class="btn">ver pedidos</a>
       </div>
 
       <div class="box">
@@ -91,8 +81,8 @@ if(!isset($admin_id)){
             $number_of_products = $select_products->rowCount()
          ?>
          <h3><?= $number_of_products; ?></h3>
-         <p>products added</p>
-         <a href="products.php" class="btn">see products</a>
+         <p>Produtos registados</p>
+         <a href="products.php" class="btn">ver produtos</a>
       </div>
 
       <div class="box">
@@ -102,8 +92,8 @@ if(!isset($admin_id)){
             $number_of_users = $select_users->rowCount()
          ?>
          <h3><?= $number_of_users; ?></h3>
-         <p>normal users</p>
-         <a href="users_accounts.php" class="btn">see users</a>
+         <p>Clientes Registados</p>
+         <a href="users_accounts.php" class="btn">ver clientes</a>
       </div>
 
       <div class="box">

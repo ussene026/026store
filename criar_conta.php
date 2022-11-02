@@ -52,18 +52,16 @@ if(isset($_POST['submit'])){
 <?php include 'components/user_header.php'; ?>
 
 <section class="form-container">
-
    <form action="" method="post">
       <h3>Criar Conta</h3>
-      <input type="text" name="name" required placeholder="enter your username" maxlength="20"  class="box">
-      <input type="email" name="email" required placeholder="enter your email" maxlength="50"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
-      <input type="password" name="pass" required placeholder="enter your password" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
-      <input type="password" name="cpass" required placeholder="confirm your password" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
-      <input type="submit" value="register now" class="btn" name="submit">
-      <p>already have an account?</p>
-      <a href="login.php" class="option-btn">login now</a>
+      <input type="text" name="name" required placeholder="Nome de Usuário" maxlength="20"  class="box">
+      <input type="email" name="email" required placeholder="Digite o email" maxlength="50"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
+      <input type="password" name="pass" required placeholder="Digite a senha" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
+      <input type="password" name="cpass" required placeholder="Confirme a senha" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
+      <input type="submit" value="Criar Conta Agora" class="btn" name="submit">
+      <p>Já possui uma conta?</p>
+      <a href="login.php" class="option-btn">Acessar Conta</a>
    </form>
-
 </section>
 
 
