@@ -1,15 +1,11 @@
 <?php
-
-include 'components/connect.php';
-
-session_start();
-
-if(isset($_SESSION['user_id'])){
-   $user_id = $_SESSION['user_id'];
-}else{
-   $user_id = '';
-};
-
+   include 'components/connect.php';
+   session_start();
+   if(isset($_SESSION['user_id'])){
+      $user_id = $_SESSION['user_id'];
+   }else{
+      $user_id = '';
+   };
 ?>
 
 <!DOCTYPE html>
@@ -18,14 +14,10 @@ if(isset($_SESSION['user_id'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>orders</title>
-   
-   <!-- font awesome cdn link  -->
+   <title>Meus Pedidos - 026 STORE</title>
+   <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-
-   <!-- custom css file link  -->
    <link rel="stylesheet" href="css/style.css">
-
 </head>
 <body>
    
@@ -33,13 +25,11 @@ if(isset($_SESSION['user_id'])){
 
 <section class="orders">
 
-   <h1 class="heading">placed orders</h1>
-
+   <h1 class="heading">Meus Pedidos</h1>
    <div class="box-container">
-
    <?php
       if($user_id == ''){
-         echo '<p class="empty">please login to see your orders</p>';
+         echo '<p class="empty">Entre com a sua conta para visualizar pedidos.</p>';
       }else{
          $select_orders = $conn->prepare("SELECT * FROM `orders` WHERE user_id = ?");
          $select_orders->execute([$user_id]);
