@@ -19,8 +19,9 @@
 
       <nav class="navbar">
          <a href="../admin/painel.php">Painel de Controle</a>
-         <a href="../index.php">Página Inicial</a>
          <a href="../admin/produtos.php">Produtos</a>
+         <a href="../admin/contas.php">Administradores</a>
+         <a href="../admin/clientes.php">Clientes</a>
       </nav>
 
       <div class="icons">
@@ -36,7 +37,8 @@
          ?>
          <p>Olá <?= $fetch_profile['name']; ?>!</p>
          <a href="../admin/perfil_admin.php" class="btn">Atualizar Perfil</a>
-         <a href="../components/sair_a.php" class="delete-btn" onclick="return confirm('Deseja terminar a sessão?');">Sair</a> 
+         <a href="../index.php" class="btn" target="_blank">Ir Para Pagina Inicial</a>
+         <a href="../components/admin_logout.php" class="delete-btn" onclick="return confirm('Deseja terminar a sessão?');">Sair</a> 
       </div>
    </section>
 </header>

@@ -10,11 +10,11 @@
       }
    }
 ?>
-
 <header class="header">
-
    <section class="flex">
+      
       <a href="index.php" class="logo">026<span>Store</span></a>
+      
       <nav class="navbar">
          <a href="index.php">Página Inicial</a>
          <a href="pedidos.php">Pedidos</a>
@@ -52,7 +52,7 @@
                   </div>
                   <a href="components/user_logout.php" class="delete-btn" onclick="return confirm('Deseja sair?');">Sair</a> 
                <?php
-            }else{
+            } else {
                ?>
                   <div class="flex-btn">
                      <a href="criar_conta.php" class="option-btn">Criar</a>

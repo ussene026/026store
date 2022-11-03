@@ -201,13 +201,9 @@ section{
    color:var(--black);
 }
 
-.header .flex .icons > *:hover{
-   color:var(--main-color);
-}
+.header .flex .icons > *:hover{color:var(--main-color);}
 
-.header .flex .icons a span{
-   font-size: 2rem;
-}
+.header .flex .icons a span{font-size: 2rem;}
 
 .header .flex .profile{
    position: absolute;
@@ -223,9 +219,7 @@ section{
    animation:fadeIn .2s linear;
 }
 
-.header .flex .profile.active{
-   display: inline-block;
-}
+.header .flex .profile.active{display: inline-block;}
 
 .header .flex .profile p{
    text-align: center;
@@ -234,9 +228,7 @@ section{
    margin-bottom: 1rem;
 }
 
-#menu-btn{
-   display: none;
-}
+#menu-btn{display: none;}
 
 .home-bg{
    background:url(../images/home-bg.png) no-repeat;

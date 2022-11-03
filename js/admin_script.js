@@ -1,5 +1,6 @@
 let navbar = document.querySelector('.header .flex .navbar');
 let profile = document.querySelector('.header .flex .profile');
+let init;
 
 document.querySelector('#menu-btn').onclick = () =>{
    navbar.classList.toggle('active');

@@ -3,7 +3,7 @@
    session_start();
    if(isset($_SESSION['user_id'])){
       $user_id = $_SESSION['user_id'];
-   }else{
+   } else {
       $user_id = '';
    };
    if(isset($_POST['submit'])){
@@ -25,7 +25,7 @@
       }else{
          if($pass != $cpass){
             $message[] = 'As senhas não correspondem!';
-         }else{
+         } else {
             $insert_user = $conn->prepare("INSERT INTO `clientes`(name, email, password) VALUES(?,?,?)");
             $insert_user->execute([$name, $email, $cpass]);
             $message[] = 'Conta criada com sucesso, faça o login!';
@@ -33,50 +33,32 @@
       }
    }
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-PT">
-<head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Criar Conta - 026 STORE</title>
-   <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-   <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-   
-<?php include 'components/user_header.php'; ?>
-
-<section class="form-container">
-   <form action="" method="post">
-      <h3>Criar Conta</h3>
-      <input type="text" name="name" required placeholder="Nome de Usuário" maxlength="20"  class="box">
-      <input type="email" name="email" required placeholder="Digite o email" maxlength="50"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
-      <input type="password" name="pass" required placeholder="Digite a senha" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
-      <input type="password" name="cpass" required placeholder="Confirme a senha" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
-      <input type="submit" value="Criar Conta Agora" class="btn" name="submit">
-      <p>Já possui uma conta?</p>
-      <a href="login.php" class="option-btn">Acessar Conta</a>
-   </form>
-</section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<?php include 'components/footer.php'; ?>
-
-<script src="js/script.js"></script>
-
-</body>
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Criar Conta - 026 STORE</title>
+      <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+      <link rel="stylesheet" href="css/style.css">
+   </head>
+   <body>
+      <?php include 'components/user_header.php'; ?>
+      <section class="form-container">
+         <form action="" method="post">
+            <h3>Criar Conta</h3>
+            <input type="text" name="name" required placeholder="Nome de Usuário" maxlength="20"  class="box">
+            <input type="email" name="email" required placeholder="Email" maxlength="50"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
+            <input type="password" name="pass" required placeholder="Senha" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
+            <input type="password" name="cpass" required placeholder="Confirmar senha" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
+            <input type="submit" value="Criar Conta Agora" class="btn" name="submit">
+            <p>Já possui uma conta?</p>
+            <a href="login.php" class="option-btn">Acessar Conta</a>
+         </form>
+      </section>
+      <?php include 'components/footer.php'; ?>
+      <script src="js/script.js"></script>
+   </body>
 </html>

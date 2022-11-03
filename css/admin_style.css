@@ -258,9 +258,7 @@ section{
    animation:fadeIn .2s linear;
 }
 
-.header .flex .profile.active{
-   display: inline-block;
-}
+.header .flex .profile.active{display: inline-block;}
 
 .header .flex .profile p{
    text-align: center;
@@ -269,9 +267,7 @@ section{
    margin-bottom: 1rem;
 }
 
-#menu-btn{
-   display: none;
-}
+#menu-btn{display: none;}
 
 .dashboard .box-container{
    display: grid;
@@ -295,9 +291,7 @@ section{
    color:var(--black);
 }
 
-.dashboard .box-container .box h3 span{
-   font-size: 2rem;
-}
+.dashboard .box-container .box h3 span{font-size: 2rem;}
 
 .dashboard .box-container .box p{
    padding:1.3rem;

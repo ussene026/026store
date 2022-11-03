@@ -3,12 +3,11 @@
    session_start();
    if(isset($_SESSION['user_id'])){
       $user_id = $_SESSION['user_id'];
-   }else{
+   } else {
       $user_id = '';
    };
    include 'components/carrinho_fav.php';
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-PT">
    <head>
@@ -30,7 +29,7 @@
 
                   <div class="swiper-slide slide">
                      <div class="image">
-                        <img src="images/home-img-1.png" alt="">
+                        <img src="images/home-img-1.png">
                      </div>
                      <div class="content">
                         <span>Promoção</span>
@@ -41,7 +40,7 @@
 
                   <div class="swiper-slide slide">
                      <div class="image">
-                        <img src="images/home-img-2.png" alt="">
+                        <img src="images/home-img-2.png">
                      </div>
                      <div class="content">
                         <span>Promoção</span>
@@ -52,7 +51,7 @@
 
                   <div class="swiper-slide slide">
                      <div class="image">
-                        <img src="images/home-img-3.png" alt="">
+                        <img src="images/home-img-3.png">
                      </div>
                      <div class="content">
                         <span>Promoção</span>
@@ -60,67 +59,68 @@
                         <a href="produtos.php" class="btn">ver mais...</a>
                      </div>
                   </div>
+
                </div>
                <div class="swiper-pagination"></div>
             </div>
          </section>
       </div>
-
       <?php include 'components/footer.php'; ?>
+
       <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
       <script src="js/script.js"></script>
       <script>
-      var swiper = new Swiper(".home-slider", {
-         loop:true,
-         spaceBetween: 20,
-         pagination: {
-            el: ".swiper-pagination",
-            clickable:true,
-         },
-      });
+         var swiper = new Swiper(".home-slider", {
+            loop:true,
+            spaceBetween: 20,
+            pagination: {
+               el: ".swiper-pagination",
+               clickable:true,
+            },
+         });
 
-      var swiper = new Swiper(".category-slider", {
-         loop:true,
-         spaceBetween: 20,
-         pagination: {
-            el: ".swiper-pagination",
-            clickable:true,
-         },
-         breakpoints: {
-            0: {
+         var swiper = new Swiper(".category-slider", {
+            loop:true,
+            spaceBetween: 20,
+            pagination: {
+               el: ".swiper-pagination",
+               clickable:true,
+            },
+            breakpoints: {
+               0: {
+                  slidesPerView: 2,
+               },
+               650: {
+               slidesPerView: 3,
+               },
+               768: {
+               slidesPerView: 4,
+               },
+               1024: {
+               slidesPerView: 5,
+               },
+            },
+         });
+
+         var swiper = new Swiper(".products-slider", {
+            loop:true,
+            spaceBetween: 20,
+            pagination: {
+               el: ".swiper-pagination",
+               clickable:true,
+            },
+            breakpoints: {
+               550: {
                slidesPerView: 2,
+               },
+               768: {
+               slidesPerView: 2,
+               },
+               1024: {
+               slidesPerView: 3,
+               },
             },
-            650: {
-            slidesPerView: 3,
-            },
-            768: {
-            slidesPerView: 4,
-            },
-            1024: {
-            slidesPerView: 5,
-            },
-         },
-      });
-
-      var swiper = new Swiper(".products-slider", {
-         loop:true,
-         spaceBetween: 20,
-         pagination: {
-            el: ".swiper-pagination",
-            clickable:true,
-         },
-         breakpoints: {
-            550: {
-            slidesPerView: 2,
-            },
-            768: {
-            slidesPerView: 2,
-            },
-            1024: {
-            slidesPerView: 3,
-            },
-         },
-      });
+         });
       </script>
    </body>
 </html>

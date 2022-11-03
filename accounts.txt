@@ -1,0 +1,16 @@
+===== Admin Accounts =====
++========================+
+| Username => admin
+| Password => admin
++------------------------+
+| Username => ussene026
+| Password => admin
++------------------------+
+===== Users Accounts =====
++========================+
+| Email => ussene@mail.com
+| Password => demo
++------------------------+
+| Email => santos@mail.com
+| Password => demo
++------------------------+
