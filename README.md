@@ -8,8 +8,8 @@ My final web project presented at the Faculty of Science and Technology at Licun
 
 # Preview
 
-<img src="../026store/images/home-page.png">
-<img src="../026store/images/product-page.png">
+<img src="https://github.com/ussene026/026store/blob/main/images/Home-page.png">
+<img src="https://github.com/ussene026/026store/blob/main/images/product-page.png">
 &nbsp;
 
 ## Support
